@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+<!--Comments in the head section can be made like this*-->
+    <title>Intro to CSS</title>
+
+    <!-- link the css page to the html document through using href.  Define the relationship to the html page by using stylesheet-->
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!--Comments in the body section can be made like this-->
+    <h1>Intro to CSS</h1>
+
+    <!--ID takes precedence over class-->
+
+    <p id="intro" class="yellowBg">
+        Intro paragraph
+    </p>
+
+    <!--Removed class rules and put an ID.  Should not use style within a body of doc.  Instead use CSS stylesheet-->
+    <p id="secondParagraph">
+        Inline styles have the highest precedence
+    </p>
+
+    <!--Attach object css defs by using the class function-->
+
+    <p class="yellowBg">
+        Separate paragraph to show element
+    </p>
+
+    <p class="yellowBg">
+        Paragraph with Class
+    </p>
+
+    <p>
+        Paragraph with no ID or Class
+    </p>
+
+
+</body>
+</html>

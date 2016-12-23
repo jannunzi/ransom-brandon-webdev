@@ -1,0 +1,39 @@
+
+
+/*This is how you define a style for an element. This applies multiple places within the doc*/
+p {
+    background-color: green;
+}
+
+#secondParagraph {
+    color:red;
+    background-color:blue;
+}
+
+/*This is how you define a class within a style section*/
+.yellowBg {
+    background-color:yellow;
+}
+
+/* This is how you define an ID within a style section*/
+#intro {
+    background-color:gray;
+}
+
+/* When there are the same elements with differing colors,  the last element will take precedence*/
+h1 {
+    color:white;
+    background-color:red;
+}
+
+h1 {
+    color:red;
+    background-color:blue;
+}
+
+/*If you want a rule to take precedent over any other element rules use the !important tag*/
+h1 {
+    color:blue !important;
+    background-color:beige;
+
+}

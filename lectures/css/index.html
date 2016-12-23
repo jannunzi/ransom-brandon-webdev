@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+<!--Comments in the head section can be made like this*-->
+    <title>Intro to CSS</title>
+    <style>
+/*Comments in the style section can be made like this.  I am assuming it is a Css thing*/
+
+ /*This is how you define a style for an element. This applies multiple places within the doc*/
+        p {
+            background-color: green;
+        }
+
+/*This is how you define a class within a style section*/
+        .yellowBg {
+            background-color:yellow;
+        }
+
+/* This is how you define an ID within a style section*/
+        #intro {
+            background-color:gray;
+        }
+
+        /* When there are the same elements with differing colors,  the last element will take precedence*/
+        h1 {
+            color:white;
+            background-color:red;
+        }
+
+        h1 {
+            color:red;
+            background-color:blue;
+        }
+
+        /*If you want a rule to take precedent over any other element rules use the !important tag*/
+        h1 {
+            color:blue !important;
+            background-color:beige;
+
+        }
+    </style>
+</head>
+<body>
+
+<!--Comments in the body section can be made like this-->
+    <h1>Intro to CSS</h1>
+
+    <!--ID takes precedence over class-->
+
+    <p id="intro" class="yellowBg">
+        Intro paragraph
+    </p>
+
+    <!--Inline comments have the highest precedence. use style for a direct shift in command-->
+    <p style="color:red; background-color: blue">
+        Inline styles have the highest precedence
+    </p>
+
+    <!--Attach object css defs by using the class function-->
+
+    <p class="yellowBg">
+        Separate paragraph to show element
+    </p>
+
+    <p class="yellowBg">
+        Paragraph with Class
+    </p>
+
+    <p>
+        Paragraph with no ID or Class
+    </p>
+
+
+</body>
+</html>

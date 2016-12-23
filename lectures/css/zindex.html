@@ -1,0 +1,65 @@
+
+<style>
+    #p1{
+        background-color:yellow;
+
+        /*Change the height and width of the paragraph*/
+        width: 100px;
+        height: 100px;
+
+        /*end the content within the height specified above*/
+        overflow: hidden;
+
+        /*Position can help to control where this pops up on the page relative to native place of the element.  If you move it it will stay within the range of the other elements*/
+        position: absolute;
+
+        /*Nudge the positioning 50px from the top of the page*/
+        top: 50px;
+
+        /*Nudge the positioning 50px from the left of the page*/
+        left: 50px;
+
+    }
+
+    #p2{
+        background-color:blue;
+
+        /*Aligns movement within a particular position as opposed to relative to the rest of the page.  Will not move when scrolling is needed*/
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        top: 100px;
+        left: 100px;
+        z-index: 1;
+    }
+
+    #p3{
+        background-color:red;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        /*will move as it scrolls, but will not move relative to the window*/
+        position: absolute;
+        top: 150px;
+        left: 150px;
+        z-index: 2;
+
+    }
+
+</style>
+
+<p id="p3">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+
+<p id="p2">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<p id="p1">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+

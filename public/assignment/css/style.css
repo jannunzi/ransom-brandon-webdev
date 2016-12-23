@@ -1,3 +1,11 @@
+#fixedBacks{
+    background-color:royalblue;
+    color: white;
+}
+
+#profForm{
+    padding-top: 30px;
+}
 input.form-control {
     margin-bottom: 5px;
 }
