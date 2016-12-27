@@ -45,3 +45,30 @@ body {
 .form-group2{
     margin-bottom: 20px;
 }
+
+.navbar-header{
+    background-color: #e0e0eb;
+    padding-left: 20px;
+}
+
+.navbar-header .navbar-brand{
+    color: dimgray;
+}
+
+#grayBottom{
+    background-color: #e0e0eb;
+}
+
+.jga-widget-tool{
+    position: absolute;
+    right: 15px;
+    background-color: white;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-bottom-left-radius: 8px;
+    opacity: 0.7
+}
+
+.glyphicon-align-justify{
+    color:dimgray;
+}

@@ -22,12 +22,12 @@
 
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">
-                        Pages
+                        Widget Edit
                     </a>
 
                     <p class="navbar-text pull-right">
                         <a href="#" class="navbar-link">
-                             <span class="glyphicon glyphicon-plus" style="margin-right:15px; color:dimgray" >
+                             <span class="glyphicon glyphicon-ok" style="margin-right:15px; color:dimgray" >
                             </span>
                         </a>
                     </p>
@@ -39,55 +39,30 @@
 
         <div class="container">
 
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="/assignment/page/page-list.html">
-                        Blog Post
-                    </a>
-                    <a href="#" class = "pull-right">
-                        <span class = "glyphicon glyphicon-cog"></span>
-                    </a>
-
-                <li class="list-group-item">
-                    <a href="/assignment/page/page-list.html">
-                        Blogs
-                    </a>
-                    <a href="/assignment/website/website-edit.html" class = "pull-right">
-                        <span class = "glyphicon glyphicon-cog"></span>
-                    </a>
-
-                <li class="list-group-item">
-                    <a href="/assignment/page/page-list.html">
-                        Home
-                    </a>
-                    <a href="/assignment/website/website-edit.html" class = "pull-right">
-                        <span class = "glyphicon glyphicon-cog"></span>
-                    </a>
-
-                <li class="list-group-item">
-                    <a href="/assignment/page/page-list.html">
-                        About
-                    </a>
-                    <a href="/assignment/website/website-edit.html" class = "pull-right">
-                        <span class = "glyphicon glyphicon-cog"></span>
-                    </a>
-
-                <li class="list-group-item">
-                    <a href="/assignment/page/page-list.html">
-                        Contact Us
-                    </a>
-                    <a href="/assignment/website/website-edit.html" class = "pull-right">
-                        <span class = "glyphicon glyphicon-cog"></span>
-                    </a>
-
-
-
-                </li>
-
-
-            </ul>
-
+            <form class="webNew">
+                <div class="form-group">
+                    <label for="widget-name">Name</label>
+                    <input type="text"
+                           class="form-control"
+                           id="widget-name">
+                </div>
+                <div>
+                    <label for="widget-text">Text</label>
+                    <input type="text"
+                           class="form-control"
+                           id="widget-text"
+                           placeholder="US Senate Reaches Compromise on Emergency">
+                </div>
+                <div>
+                    <label for="widget-size">Size</label>
+                    <input type="text"
+                           class="form-control"
+                           id="widget-size"
+                           placeholder="3">
+                </div>
+                <a class="btn btn-danger btn-block" href="profile.html">Delete</a>
         </div>
+
 
 <nav id="grayBottom" class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
