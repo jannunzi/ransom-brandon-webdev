@@ -1,6 +1,5 @@
-#fixedBacks{
-    background-color:royalblue;
-    color: white;
+.navbar-default{
+    background-color: cornflowerblue;
 }
 
 #profForm{
@@ -12,4 +11,37 @@ input.form-control {
 
 body {
     padding-top: 36px;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.glyphicon {
+    color: white;
+}
+
+.glyphicon-cog{
+    color: cornflowerblue;
+}
+
+.list-group {
+    padding-top: 36px;
+
+}
+
+.list-group-item{
+    border: none;
+}
+
+#webForm {
+    padding-top: 30px;
+}
+
+.form-group{
+    padding-top: 30px;
+}
+
+.form-group2{
+    margin-bottom: 20px;
 }
