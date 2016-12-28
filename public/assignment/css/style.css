@@ -5,6 +5,7 @@
 #profForm{
     padding-top: 30px;
 }
+
 input.form-control {
     margin-bottom: 5px;
 }
@@ -72,3 +73,4 @@ body {
 .glyphicon-align-justify{
     color:dimgray;
 }
+
