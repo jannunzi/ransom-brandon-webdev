@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Handling Events with jQuery</title>
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script>
+        $(init);
+// Create a jQuery command that alerts when p1 is clicked
+        function init()
+        {
+            $("#p1").click(p1Clicked);
+            $("#ADD").click(addAandB);
+        }
+
+        function addAandB()
+        {
+            var a = $("#A").val();
+            var b = $("#B").val();
+            //use parseInt to force the values of a and b to integers
+            a = parseInt(a);
+            b = parseInt(b);
+            var c = a + b;
+            $("#C").val(c);
+        }
+
+        function p1Clicked()
+        {
+            //sends alert when p1 is clicked
+            //alert("p1Clicked");
+
+            //adds another paragraph every time p1 is clicked
+            $("body").append("<p>New Paragraph</p>");
+        }
+    </script>
+
+</head>
+<body>
+
+    <h1>Handling Events with jQuery</h1>
+    <p id="p1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+    <input id ="A"/>
+    <input id ="B"/>
+    <button id = "ADD"> Add A and B</button>
+    <input id ="C"/>
+
+</body>
+</html>
