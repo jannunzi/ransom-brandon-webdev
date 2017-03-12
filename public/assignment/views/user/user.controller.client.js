@@ -24,9 +24,7 @@
             }
         }
     }
-    function RegisterController() {
 
-    }
 
     function ProfileController(UserService, $routeParams) {
         var vm = this;
@@ -42,6 +40,10 @@
             vm.user = user;
         }
         init();
+    }
+
+    function RegisterController() {
+
     }
 
 })();

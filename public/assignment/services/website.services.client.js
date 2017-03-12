@@ -15,39 +15,45 @@
         function WebsiteService(){
 
         var api = {
-            "createWebsite": "createWebsite",
-            "findWebsitesByUser": "findWebsitesByUser",
-            "findWebsiteById": "findWebsiteById",
-            "updateWebsite": "updateWebsite",
-            "deleteWebsite": "deleteWebsite"
+            createWebsite: createWebsite,
+            findWebsitesByUser: findWebsitesByUser,
+            deleteWebsite: deleteWebsite
+
         };
 
         return api;
 
-        function createWebsite(userId,website){
-
+        function deleteWebsite(wid){
+            for (var i in websites){
+                if (websites[i]._id === wid){
+                    websites.splice(i, 1);
+                    return true;
+                }
             }
+            return false;
+        }
 
-        function findWebsitesByUser(userId){
+        function createWebsite(developerId, name, desc){
+            var newWebsite = {
+                _id: (new Date()).getTime() + "",
+                name: name,
+                description: desc,
+                developerId: developerId
+            };
+            websites.push(newWebsite);
+            return newWebsite;
+        }
+
+        function findWebsitesByUser(uid){
             var result = [];
             for(var i in websites){
-                if(websites[i].developerId === userId){
-                    results.push(websites[i]);
+                if(websites[i].developerId === uid){
+                    result.push(websites[i]);
                 }
             }
             return result;
         }
 
-        function findWebsiteById(websiteId){
-
-        }
-        function updateWebsite(websiteId, website){
-
-        }
-
-        function deleteWebsite(websiteId){
-
-        }
 
 
 

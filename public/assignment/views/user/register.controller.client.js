@@ -1,14 +1,14 @@
 (function() {
     angular
         .module("WebAppMaker")
-        .controller("ProfileController", ProfileController);
+        .controller("RegisterController", RegisterController);
 
-    function ProfileController($routeParams, UserService) {
+    function RegisterController($routeParams, UserService) {
         var vm = this;
         var uid = $routeParams.uid;
 
         function init() {
-            var user = UserService.findUserById(uid);
+            var user = UserService.createUser(newUser);
             vm.user = user;
         }
         init();

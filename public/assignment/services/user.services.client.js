@@ -26,10 +26,18 @@
         return api;
 
         function createUser(newUser) {
-            var newUser ={
-                _id: (new Date()).getTime()
-            };
-            users.push(newUser)
+            for(var i in users){
+ //               users[i].username = newUser.username;
+ //               users[i].password = newUser.password;
+
+            }
+
+
+ //           var newUser ={
+ //               _id: (new Date()).getTime()
+ //           };
+//            users.push(newUser)
+
         }
 
         function findUserById(id){
