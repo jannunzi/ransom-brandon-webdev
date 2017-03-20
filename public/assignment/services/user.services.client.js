@@ -25,20 +25,16 @@
         };
         return api;
 
-        function createUser(newUser) {
-            for(var i in users){
- //               users[i].username = newUser.username;
- //               users[i].password = newUser.password;
-
-            }
-
-
- //           var newUser ={
- //               _id: (new Date()).getTime()
- //           };
-//            users.push(newUser)
-
+        function createUser(username, password){
+            var newUser = {
+                _id: (new Date()).getTime(),
+                username: username,
+                password: password
+            };
+            users.push(newUser);
+            return newUser;
         }
+
 
         function findUserById(id){
             for(var i in users){
@@ -80,20 +76,17 @@
 
         }
 
-        function deleteUser(userId){
+        function deleteUser(id){
 
             for (var i in users){
-                if(users[i]._id === _id) {
-                    users=users.splice(i, 1);
+                if(users[i]._id === id) {
+                    users.splice(i, 1);
                     break;
                 }
             }
 
         }
 
-  //      function cUser(hggg,username,password,firtname,lastname){
-  //          users.push({_id:hggg, username: username,    password: password,    firstName: firtname,  lastName: lastname  });
-  //      }
 
     }
 

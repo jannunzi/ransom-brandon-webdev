@@ -5,7 +5,7 @@
         .controller("NewWidgetController", NewWidgetController)
         .controller("EditWidgetController", EditWidgetController);
 
-    function WidgetListController($routeParams, WebsiteService){
+    function WidgetListController($routeParams, WidgetService){
         var vm = this;
         var userId = $routeParams.userId;
 

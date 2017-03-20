@@ -4,7 +4,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
                 <div class="navbar-text pull-left" style="margin-left: 0px">
-                    <a href="#/user/:uid/">
+                    <a href="#/user/{{model.uid}}/">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
                 </div>
@@ -34,7 +34,7 @@
 
                 {{model.websites}}
                 <li ng-repeat ="website in model.websites" class="list-group-item">
-                    <a href="#/user/:uid/website/:wid/page">
+                    <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">
                         {{website.name}}
                     </a>
                     <a href="#/user/{{website.developerId}}/website/{{website._id}}" class = "pull-right">
@@ -68,7 +68,7 @@
                 </a>
             </div>
             <div class="col-xs-3 text-center">
-                <a href="#/user/:uid">
+                <a href="#/user/{{model.uid}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>

@@ -22,30 +22,62 @@
 
         return api;
 
-        function createPage(websiteId, page){
+        function createPage(websiteId, name, desc){
+            var newPage = {
+                _id: (new Date()).getTime() + "",
+                name: name,
+                description: desc,
+                websiteId: websiteId
+            }
+            pages.push(newPage);
+            return newPage;
 
         }
 
-        function findPageByWebsiteId(websiteId){
+        function findPageByWebsiteId(wid){
+            var result = [];
+            for(var i in pages){
+                if(pages[i].websiteId === wid){
+                    result.push(pages[i])
+                }
+            }
 
         }
 
-        function findPageById(PageId){
+        function findPageById(pid){
+            var result = [];
+            for(var i in pages){
+                if(pages[i]._id === pid){
+                    result.push(pages[i])
+                }
+            }
 
         }
 
-        function updatePage(pageId, page){
+        function updatePage(pid, page){
+            for (var i in pages){
+                if(pages[i].websiteId === pid){
+                    pages[i].description = page.description;
+                    pages[i].name = page.name;
+                    return true;
+                }
+            }
+            return false;
 
         }
 
-        function deletePage(pageId){
-
+        function deletePage(pid){
+            for(var i in pages){
+                if(pages[i]._id === pid){
+                    pages.splice(i,1);
+                    return true;
+                }
+            }
+            return false;
         }
 
 
 
     }
 })();
-/**
- * Created by Bransom on 1/2/17.
- */
+

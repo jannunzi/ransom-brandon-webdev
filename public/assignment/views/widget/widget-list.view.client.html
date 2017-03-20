@@ -25,9 +25,11 @@
         </div>
     </nav>
 
+
+
         <div class="container">
 
-            <div class="jga-widget">
+            <div ng-repeat="widget in model.widgets" class="jga-widget">
                 <div class ="jga-widget-tool">
                     <a href="widget-heading.view.client.html">
                         <span class="glyphicon glyphicon-cog"></span>
@@ -35,58 +37,32 @@
                     <span class="glyphicon glyphicon-align-justify"></span>
 
                 </div>
-                <h1>GIZMODO</h1>
-            </div>
 
+                <div ng-switch = "widget.widgetType">
+                    <div ng-switch-when = "HEADER" ng-switch="widget.size">
+                        <h1 ng-switch-when="1">{{widget.text}}</h1>
+                        <h2 ng-switch-when="2">{{widget.text}}</h2>
+                        <h3 ng-switch-when="3">{{widget.text}}</h3>
+                        <h4 ng-switch-when="4">{{widget.text}}</h4>
+                        <h5 ng-switch-when="5">{{widget.text}}</h5>
+                        <h6 ng-switch-when="6">{{widget.text}}</h6>
+                    </div>
 
-            <div class="jga-widget">
-                <div class ="jga-widget-tool">
-                    <a href="#">
-                        <span class="glyphicon glyphicon-cog"></span>
-                    </a>
-                    <span class="glyphicon glyphicon-align-justify"></span>
+                    <div ng-switch-when = "HTML">
+                        <div ng-bind-html="model.getSafeHtml(widget)"></div>
 
-                </div>
-                <h4>Digital Music Couldn't Exist Without the Fourier Transform</h4>
-            </div>
-
-            <div class="jga-widget">
-                <div class ="jga-widget-tool">
-                    <a href="widget-image.view.client.html">
-                        <span class="glyphicon glyphicon-cog"></span>
-                    </a>
-                    <span class="glyphicon glyphicon-align-justify"></span>
-
-                </div>
-                <img width="100%" src="https://i.kinja-img.com/gawker-media/image/upload/s--Z3ratn3g--/c_fit,fl_progressive,q_80,w_636/1237225127650705478.png"/>
-            </div>
-
-            <div class="jga-widget">
-                <div class ="jga-widget-tool">
-                    <a href="#">
-                        <span class="glyphicon glyphicon-cog"></span>
-                    </a>
-                    <span class="glyphicon glyphicon-align-justify"></span>
+                    </div>
+                    <div ng-switch-when = "IMAGE">
+                        <img ng-src="{{widget.url}}" width = "{{widget.width}}"/>
+                    </div>
+                    <div ng-switch-when = "YOUTUBE">
+                        <iframe width="{{widget.width}}" ng-src="{{model.getSafeUrl(widget)}}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div ng-switch-default>Unknown Widget</div>
 
                 </div>
-                <p class="first-text">This is the Fourier Transform. You can thank it for providing the music you stream every day, squeezing down the images you see on the Internet into tiny little JPG files, and even powering your noise-canceling headphones. Here’s how it works.</p>
             </div>
 
-            <div class="jga-widget">
-                <div class ="jga-widget-tool">
-                    <a href="widget-youtube.view.client.html">
-                        <span class="glyphicon glyphicon-cog"></span>
-                    </a>
-                    <span class="glyphicon glyphicon-align-justify"></span>
-                </div>
-                <iframe width="100%" src="https://www.youtube.com/embed/F5vqupbtEGE" frameborder="0" allowfullscreen></iframe>
-            </div>
-
-            <p class="first-text">Given the wireframes discussed in class, implement the following HTML pages using HTML, CSS, and Bootstrap. The HTML pages should responsive and mobile first. Tablet and desktop layout will be considered in a later assignment. The wireframes just show the functionality and layout of the page, the do not show the look and feel of the page. You can use the default look and feel provided by bootstrap stylesheet, but you can improve on the style. Apply the styles using bootstrap classes. The instructor will demonstrate how to use bootstrap styles and code samples to build the Web pages. These are the Web pages you must create</p>
-
-
-
-        </div>
 
 <nav id="grayBottom" class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">

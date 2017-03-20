@@ -4,7 +4,7 @@
 
         .controller("PageListController", PageListController)
         .controller("NewPageController", NewPageController)
-        .controller("EditPageController", EditPageController)
+        .controller("EditPageController", EditPageController);
 
     function PageListController(){
 

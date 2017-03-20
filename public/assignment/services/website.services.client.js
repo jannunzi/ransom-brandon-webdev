@@ -17,7 +17,10 @@
         var api = {
             createWebsite: createWebsite,
             findWebsitesByUser: findWebsitesByUser,
-            deleteWebsite: deleteWebsite
+            deleteWebsite: deleteWebsite,
+            updateWebsite: updateWebsite,
+            findWebsiteById: findWebsiteById
+
 
         };
 
@@ -47,15 +50,34 @@
         function findWebsitesByUser(uid){
             var result = [];
             for(var i in websites){
-                if(websites[i].developerId === uid){
+                if(websites[i]._id === uid){
                     result.push(websites[i]);
                 }
             }
             return result;
         }
 
+            function findWebsiteById(wid){
+                var result = [];
+                for(var i in websites){
+                    if(websites[i].developerId === wid){
+                        result.push(websites[i]);
+                    }
+                }
+                return result;
+            }
 
+        function updateWebsite(wid, website){
+            for (var i in websites){
+                if(websites[i].developerId === wid){
+                    websites[i].description = website.description;
+                    websites[i].name = website.name;
+                    return true;
+                }
 
+            }
+            return false;
+        }
 
     }
 })();
