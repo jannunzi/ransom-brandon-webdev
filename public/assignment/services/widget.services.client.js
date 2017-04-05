@@ -53,7 +53,7 @@
             var result = [];
             for(var i in widgets){
                 if(widgets[i].pageId === pid){
-                    result.push(widget[i])
+                    result.push(widgets[i])
                 }
             }
             return result;
@@ -74,7 +74,7 @@
         function deleteWidget(widgetId){
             for(var i in widgets){
                 if(widgets[i]._id === widgetId){
-                    widget.splice(i, 1);
+                    widgets.splice(i, 1);
                     return true;
                 }
             }

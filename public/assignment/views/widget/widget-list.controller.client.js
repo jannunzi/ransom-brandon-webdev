@@ -5,14 +5,15 @@
 
     function WidgetListController($sce, $routeParams, WidgetService){
         var vm = this;
-        var pid = $routeParams.pid;
+        vm.pageId = $routeParams.pid;
         vm.uid = $routeParams.uid;
         vm.getSafeHtml= getSafeHtml;
         vm.getSafeUrl= getSafeUrl;
 
         function init(){
 
-            vm.widgets = WidgetService.findWidgetsForPageId(pid);
+            vm.widgets = WidgetService.findWidgetByPageId(vm.pageId);
+            console.log(vm.widgets);
 
         }
         init();

@@ -3,18 +3,18 @@
         <div class="container-fluid">
             <div class ="navbar-header">
                 <div class="navbar-text pull-left" style="margin-left: 0px">
-                    <a href="#/user/:uid/website">
+                    <a href="#/user/{{model.uid}}/website">
                         <span class="glyphicon glyphicon-chevron-left" style="color:dimgray"></span>
                     </a>
                 </div>
 
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#/user/:uid/website/:wid/page/:pid/widget">
+                    <a class="navbar-brand" href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{pages._id}}/widget">
                         Pages
                     </a>
 
                     <p class="navbar-text pull-right">
-                        <a href="#/user/:uid/website/:wid/page/new" class="navbar-link">
+                        <a href="#/user/{{model.uid}}/website/{{model.websiteId}}/page/new" class="navbar-link">
                              <span class="glyphicon glyphicon-plus" style="margin-right:15px; color:dimgray" >
                             </span>
                         </a>
@@ -25,49 +25,18 @@
         </div>
     </nav>
 
+
+
         <div class="container">
 
             <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="#/user/:uid/website/:wid/page/:pid/widget">
-                        Blog Post
+                <li ng-repeat = "page in model.pages" class="list-group-item">
+                    <a href="#/user/{{model.uid}}/website/{{page.websiteId}}/page/{{page._id}}/widget">
+                        {{page.name}}
                     </a>
-                    <a href="#/user/:uid/website/:wid/page/:pid" class = "pull-right">
+                    <a href="#/user/{{model.uid}}/website/{{page.websiteId}}/page/{{page._id}}" class = "pull-right">
                         <span class = "glyphicon glyphicon-cog"></span>
                     </a>
-
-                <li class="list-group-item">
-                    <a href="#/user/:uid/website/:wid/page/:pid/widget">
-                        Blogs
-                    </a>
-                    <a href="#/user/:uid/website/:wid/page/:pid" class = "pull-right">
-                        <span class = "glyphicon glyphicon-cog"></span>
-                    </a>
-
-                <li class="list-group-item">
-                    <a href="#/user/:uid/website/:wid/page/:pid/widget">
-                        Home
-                    </a>
-                    <a href="#/user/:uid/website/:wid/page/:pid" class = "pull-right">
-                        <span class = "glyphicon glyphicon-cog"></span>
-                    </a>
-
-                <li class="list-group-item">
-                    <a href="#/user/:uid/website/:wid/page/:pid/widget">
-                        About
-                    </a>
-                    <a href="page-edit.view.client.html" class = "pull-right">
-                        <span class = "glyphicon glyphicon-cog"></span>
-                    </a>
-
-                <li class="list-group-item">
-                    <a href="#/user/:uid/website/:wid/page/:pid/widget">
-                        Contact Us
-                    </a>
-                    <a href="#/user/:uid/website/:wid/page/:pid" class = "pull-right">
-                        <span class = "glyphicon glyphicon-cog"></span>
-                    </a>
-
 
 
                 </li>

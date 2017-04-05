@@ -12,11 +12,11 @@
     function PageService(){
 
         var api = {
-            "createPage": "createPage",
-            "findPageByWebsiteId": "findPageByWebsiteId",
-            "findPageById": "findPageById",
-            "updatePage": "updatePage",
-            "deletePage": "deletePage"
+            createPage: createPage,
+            findPageByWebsiteId: findPageByWebsiteId,
+            findPageById: findPageById,
+            updatePage: updatePage,
+            deletePage: deletePage
 
         };
 
@@ -28,20 +28,20 @@
                 name: name,
                 description: desc,
                 websiteId: websiteId
-            }
+            };
             pages.push(newPage);
             return newPage;
 
         }
 
-        function findPageByWebsiteId(wid){
+        function findPageByWebsiteId(websiteId){
             var result = [];
             for(var i in pages){
-                if(pages[i].websiteId === wid){
+                if(pages[i].websiteId === websiteId){
                     result.push(pages[i])
                 }
             }
-
+            return result;
         }
 
         function findPageById(pid){
@@ -51,8 +51,10 @@
                     result.push(pages[i])
                 }
             }
+            return result;
 
         }
+
 
         function updatePage(pid, page){
             for (var i in pages){
