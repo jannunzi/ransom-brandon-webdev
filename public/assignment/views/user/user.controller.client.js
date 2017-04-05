@@ -15,13 +15,11 @@
         init();
 
         function login(username, password) {
-            var user = UserService.findUserByCredentials(username, password);
-            console.log(user);
-            if(user) {
-                $location.url("/user/" + user._id);
-            } else {
+            var promise = UserService.findUserByCredentials(username, password);
+            promise.then(function(response){
+                console.log(response)
 
-            }
+            });
         }
     }
 
