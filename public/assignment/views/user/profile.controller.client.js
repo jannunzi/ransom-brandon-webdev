@@ -8,10 +8,17 @@
         var uid = $routeParams.uid;
 
         function init() {
-            var user = UserService.findUserById(uid);
-            vm.user = user;
+            UserService
+                .findUserById(uid)
+                .then(function(response){
+                   vm.user = response.data;
+                });
         }
         init();
+
+        function updateUser(newUser){
+            UserService.updateUser(id, newUser)
+        }
 
 
     }

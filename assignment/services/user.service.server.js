@@ -7,11 +7,19 @@ module.exports = function(app){
         {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
     ];
 
+    app.post("/api/user", createUser);
     app.get("/api/user", getUsers);
 
     // Express cannot differentiate between /api/user & /api/user?username=:username
     // app.get("/api/user?username=:username", findUserByUsername);
     app.get("/api/user/:userId", findUserById);
+
+    function createUser(req,res){
+        var user = req.body;
+        console.log(user);
+        users.push(user);
+        res.send(user);
+    }
 
     // path parameters are in params and query parameters are in query.
 

@@ -16,23 +16,19 @@
         return api;
 
         function createUser(username, password){
-            var newUser = {
+            var user = {
                 _id: (new Date()).getTime(),
                 username: username,
                 password: password
             };
-            users.push(newUser);
-            return newUser;
+            return $http.post("/api/user", user);
         }
 
 
         function findUserById(id){
-            for(var i in users){
-                if(users[i]._id === id){
-                    return users[i];
-                }
-            }
-            return null;
+            var url = "/api/user/" + id;
+            return $http.get(url);
+
         }
 
         function findUserByUsername(username){
