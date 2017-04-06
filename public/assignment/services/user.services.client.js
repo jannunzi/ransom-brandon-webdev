@@ -55,13 +55,15 @@
         }
 
         function deleteUser(id){
+            var url = "/api/user/"+ id;
+            return $http.delete(url);
 
-            for (var i in users){
-                if(users[i]._id === id) {
-                    users.splice(i, 1);
-                    break;
-                }
-            }
+            // for (var i in users){
+            //     if(users[i]._id === id) {
+            //         users.splice(i, 1);
+            //         break;
+            //     }
+            // }
 
         }
 
