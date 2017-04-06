@@ -5,9 +5,9 @@
                 Profile
             </a>
             <p id="check" class="navbar-text pull-right">
-                <a href="#/profile/" class="navbar-link">
-          <span class="glyphicon glyphicon-ok" style="margin-right:15px; color:white">
-          </span>
+                <a ng-click= "model.updateUser(model.user)" class="navbar-link">
+                  <span class="glyphicon glyphicon-ok" style="margin-right:15px; color:white">
+                  </span>
                 </a>
             </p>
         </div>
@@ -17,6 +17,15 @@
 
     <div class="container">
 
+        <div ng-if="model.success" class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Success!</strong> {{model.success}}
+        </div>
+
+        <div ng-if="model.error" class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Error!</strong> {{model.error}}
+        </div>
 
         <form>
             <div id="profForm" class="form-group">

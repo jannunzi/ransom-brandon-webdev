@@ -17,7 +17,16 @@
         init();
 
         function updateUser(newUser){
-            UserService.updateUser(id, newUser)
+            UserService
+                .updateUser(uid, newUser)
+                .then(
+                    function(response){
+                        vm.success ="Updated successfully"
+
+                },
+                    function(error){
+
+                })
         }
 
 

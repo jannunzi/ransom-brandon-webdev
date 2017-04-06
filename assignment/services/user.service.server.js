@@ -13,6 +13,21 @@ module.exports = function(app){
     // Express cannot differentiate between /api/user & /api/user?username=:username
     // app.get("/api/user?username=:username", findUserByUsername);
     app.get("/api/user/:userId", findUserById);
+    app.put("/api/user/:userId", updateUser);
+
+    function updateUser(req, res){
+        var uid = req.params.uid;
+        var newUser = req.body;
+        for(var i in users){
+            if(users[i]._id === uid){
+                users[i].firstName = newUser.firstName;
+                users[i].lastName = newUser.lastName;
+                res.sent(200);
+                return;
+            }
+        }
+        res.send(400);
+    }
 
     function createUser(req,res){
         var user = req.body;
