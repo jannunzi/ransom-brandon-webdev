@@ -13,7 +13,9 @@
         function init(){
 
             vm.widgets = WidgetService.findWidgetByPageId(vm.pageId);
-            console.log(vm.widgets);
+            //Uses jQuery to make the widgets sortable.
+            $(".container")
+                .sortable();
 
         }
         init();

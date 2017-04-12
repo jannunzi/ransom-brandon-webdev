@@ -15,14 +15,15 @@
         { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
     ];
 
-    function WidgetService(){
+    function WidgetService($http){
 
         var api = {
             createWidget: createWidget,
             findWidgetByPageId: findWidgetByPageId,
             findWidgetsById: findWidgetsById,
             updateWidget: updateWidget,
-            deleteWidget: deleteWidget
+            deleteWidget: deleteWidget,
+            findWidgetById: findWidgetById
         };
 
         return api;
@@ -79,6 +80,11 @@
                 }
             }
             return false;
+        }
+
+        function findWidgetById(widgetId){
+            var url = "/api/widget/"+widgetId;
+            return $http.get(url);
         }
 
 
