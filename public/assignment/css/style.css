@@ -73,3 +73,7 @@ body {
 .glyphicon-align-justify{
     color:dimgray;
 }
+
+#flickr-search{
+    padding-top: 30px;
+}

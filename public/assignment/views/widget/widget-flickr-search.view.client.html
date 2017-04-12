@@ -1,0 +1,74 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class ="navbar-header">
+            <div class="navbar-text pull-left" style="margin-left: 0px">
+                <a href="#/user/:uid/website/:wid/page">
+                    <span class="glyphicon glyphicon-chevron-left" style="color:dimgray"></span>
+                </a>
+            </div>
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    Search Flickr
+                </a>
+
+                <p class="navbar-text pull-right">
+                    <a href="#/user/:uid/website/:wid/page/:pid/widget/new" class="navbar-link">
+                             <span class="glyphicon glyphicon-plus" style="margin-right:15px; color:dimgray" >
+                            </span>
+                    </a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+<div class="container" id="flickr-search">
+
+    <div class="input-group">
+        <input ng-model="searchText" type="text" class="form-control">
+        <span class="input-group-btn">
+        <a ng-click="model.searchPhotos(searchText)" class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+        </a>
+    </span>
+    </div>
+
+    <div class ="row">
+        <div ng-repeat = "photo in model.photos.photo" class = "col-xs-4">
+            <img width = "100%" ng-src ="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"/>
+        </div>
+
+    </div>
+
+</div>
+
+
+<nav id="grayBottom" class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+        <div class="row navbar-text">
+            <div class="col-xs-3 text-center">
+                <span class="glyphicon glyphicon-play" style="color:dimgray"></span>
+                <span class="glyphicon glyphicon-eye-open" style="color:dimgray"></span>
+            </div>
+            <div class="col-xs-3 text-center">
+                <a href="#">
+                    <span class=""></span>
+                </a>
+            </div>
+            <div class="col-xs-3 text-center">
+                <a href="#">
+                    <span class=""></span>
+                </a>
+            </div>
+            <div class="col-xs-3 text-center">
+                <a href="#/user/:uid">
+                    <span class="glyphicon glyphicon-user" style="color:cornflowerblue"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -21,7 +21,7 @@ module.exports = function(app){
         for(var i in users){
             if (users[i]._id === uid){
                 users.splice(i, 1);
-                res.send(200);
+                res.send(users[i]);
                 return;
             }
         }
@@ -35,7 +35,7 @@ module.exports = function(app){
             if(users[i]._id === uid){
                 users[i].firstName = newUser.firstName;
                 users[i].lastName = newUser.lastName;
-                res.sent(200);
+                res.send(users[i]);
                 return;
             }
         }

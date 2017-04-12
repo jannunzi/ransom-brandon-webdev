@@ -14,6 +14,7 @@
                 .findUserById(uid)
                 .then(function(response){
                    vm.user = response.data;
+                   console.log(response);
                 });
         }
         init();
@@ -39,12 +40,14 @@
                 .then(
                     function(response){
                         vm.success ="Updated successfully"
+                        console.log(response);
 
                 },
                     function(error){
                         vm.error= "failed to update"
 
                 })
+
         }
 
 
