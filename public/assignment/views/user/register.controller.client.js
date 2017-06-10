@@ -8,7 +8,7 @@
         var uid = $routeParams.uid;
         vm.register = register;
 
-        function register(username, password, password2) {
+        function register(username, password) {
             UserService
                 .createUser(username, password)
                 .then(function(response){

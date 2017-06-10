@@ -39,7 +39,7 @@
                 .updateUser(uid, newUser)
                 .then(
                     function(response){
-                        vm.success ="Updated successfully"
+                        vm.success ="Updated successfully";
                         console.log(response);
 
                 },

@@ -16,9 +16,29 @@ module.exports = function (app) {
     var multer = require('multer'); // npm install multer --save
     var upload = multer({ dest: __dirname+'/../../public/upload' });
 
+
+    app.post("/api/page/:pageId/widget", createWidget);
+    app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
+    app.get("/api/widget/:widgetId", findWidgetById);
+    app.put("/api/widget/:widgetId", updateUser);
+    app.delete("/api/widget/:widgetId", deleteWidget);
+
     //6th widget post after all the required sending of information.
     app.post ("/api/upload", upload.single('myFile'), uploadImage);
-    app.get("/api/widget/:widgetId", findWidgetById);
+
+
+
+    function createWidget(req, res){
+        var widget = req.body;
+        console.log(widget);
+        users.push(widget);
+        res.send(widget);
+
+    }
+
+    function findAllWidgetsForPage(req, res){
+
+    }
 
     function findWidgetById(req, res){
         var widgetId = req.params.widgetId;
@@ -31,6 +51,18 @@ module.exports = function (app) {
         }
         res.status(404).send("Unable to find widget with id:" + widgetId);
     }
+
+    function updateUser(req, res){
+
+    }
+
+    function deleteWidget(req, res){
+
+    }
+
+
+
+
 
     function uploadImage(req, res) {
 

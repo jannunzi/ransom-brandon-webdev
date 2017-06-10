@@ -3,28 +3,28 @@
         .module("WebAppMaker")
         .factory("WebsiteService", WebsiteService);
 
-    var websites = [
-        { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },
-        { "_id": "234", "name": "Tweeter",     "developerId": "456", "description": "Lorem" },
-        { "_id": "456", "name": "Gizmodo",     "developerId": "456", "description": "Lorem" },
-        { "_id": "567", "name": "Tic Tac Toe", "developerId": "123", "description": "Lorem" },
-        { "_id": "678", "name": "Checkers",    "developerId": "123", "description": "Lorem" },
-        { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
-    ];
 
-        function WebsiteService(){
+        function WebsiteService($http){
 
         var api = {
-            createWebsite: createWebsite,
-            findWebsitesByUser: findWebsitesByUser,
-            deleteWebsite: deleteWebsite,
-            updateWebsite: updateWebsite,
-            findWebsiteById: findWebsiteById
-
-
+            "createWebsite": createWebsite,
+            "findAllWebsitesForUser": findAllWebsitesForUser,
+            "deleteWebsite": deleteWebsite,
+            "updateWebsite": updateWebsite,
+            "findWebsiteById": findWebsiteById
         };
 
         return api;
+
+            function createWebsite(developerId, name, desc){
+                var website = {
+                    _id: (new Date()).getTime() + "",
+                    name: name,
+                    description: desc,
+                    developerId: developerId
+                };
+                return $http.post("/api/user/:userId/website", website);
+            }
 
         function deleteWebsite(wid){
             for (var i in websites){
@@ -36,35 +36,23 @@
             return false;
         }
 
-        function createWebsite(developerId, name, desc){
-            var newWebsite = {
-                _id: (new Date()).getTime() + "",
-                name: name,
-                description: desc,
-                developerId: developerId
-            };
-            websites.push(newWebsite);
-            return newWebsite;
-        }
 
-        function findWebsitesByUser(uid){
-            var result = [];
-            for(var i in websites){
-                if(websites[i]._id === uid){
-                    result.push(websites[i]);
-                }
-            }
-            return result;
+
+        function findAllWebsitesForUser(uid){
+            var url = "/api/user/"+uid+"/website";
+            return $http.get(url);
+
+            // var result = [];
+            // for(var i in websites){
+            //     if(websites[i]._id === uid){
+            //         result.push(websites[i]);
+            //     }
+            // }
+            // return result;
         }
 
             function findWebsiteById(wid){
-                var result = [];
-                for(var i in websites){
-                    if(websites[i].developerId === wid){
-                        result.push(websites[i]);
-                    }
-                }
-                return result;
+                var url = ""
             }
 
         function updateWebsite(wid, website){

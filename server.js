@@ -18,3 +18,6 @@ assignment(app);
 
 app.listen(port, ipaddress);
 
+process.on('SIGINT', function(){
+    process.exit();
+});
