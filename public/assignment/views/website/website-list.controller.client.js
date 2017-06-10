@@ -3,15 +3,15 @@
         .module("WebAppMaker")
         .controller("WebsiteListController", WebsiteListController);
 
-    function WebsiteListController($routeParams, $location, WebsiteService){
+    function WebsiteListController($routeParams, WebsiteService){
         var vm = this;
-        vm.uid = $routeParams.uid;
+        var userId = $routeParams.uid;
 
         function init(){
 
+            vm.userId = userId;
             WebsiteService
-
-                .findAllWebsitesForUser(vm.uid)
+                .findWebsitesByUser(userId)
                 .success(function(websites){
                     vm.websites = websites;
             });

@@ -8,7 +8,7 @@
 
         var api = {
             "createWebsite": createWebsite,
-            "findAllWebsitesForUser": findAllWebsitesForUser,
+            "findWebsitesByUser": findWebsitesByUser,
             "deleteWebsite": deleteWebsite,
             "updateWebsite": updateWebsite,
             "findWebsiteById": findWebsiteById
@@ -17,12 +17,12 @@
         return api;
 
             function createWebsite(developerId, name, desc){
-                var website = {
+              /*  var website = {
                     _id: (new Date()).getTime() + "",
                     name: name,
                     description: desc,
                     developerId: developerId
-                };
+                };*/
                 return $http.post("/api/user/:userId/website", website);
             }
 
@@ -38,17 +38,9 @@
 
 
 
-        function findAllWebsitesForUser(uid){
-            var url = "/api/user/"+uid+"/website";
-            return $http.get(url);
+        function findWebsitesByUser(userId){
+            return $http.get("/api/user/"+ userId + "/website");
 
-            // var result = [];
-            // for(var i in websites){
-            //     if(websites[i]._id === uid){
-            //         result.push(websites[i]);
-            //     }
-            // }
-            // return result;
         }
 
             function findWebsiteById(wid){

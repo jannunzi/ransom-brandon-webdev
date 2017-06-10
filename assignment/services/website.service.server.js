@@ -1,5 +1,12 @@
 module.exports = function(app){
 
+    app.post("/api/user/:userId/website", createWebsite);
+    app.get("/api/user/:userId/website", findWebsitesByUser);
+    app.get("/api/website/:websiteId", findWebsiteById);
+    app.put("/api/website/:websiteId", updateWebsite);
+    app.delete("/api/website/:websiteId", deleteWebsite);
+
+
     var websites = [
         { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },
         { "_id": "234", "name": "Tweeter",     "developerId": "456", "description": "Lorem" },
@@ -9,13 +16,8 @@ module.exports = function(app){
         { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
     ];
 
-    app.post("/api/user/:userId/website", createWebsite);
-    app.get("/api/user/:userId/website", findAllWebsitesForUser);
-    app.get("/api/website/:websiteId", findWebsiteById);
-    app.put("/api/website/:websiteId", updateWebsite);
-    app.delete("/api/website/:websiteId", deleteWebsite);
 
-    function createWebsite(req,res){
+    function createWebsite(req, res){
         var website = req.body;
         console.log(website);
         users.push(website);
@@ -24,24 +26,24 @@ module.exports = function(app){
 
     //This function never places the Website list within the resulting array.  I need to find a way to do this.
 
-    function findAllWebsitesForUser(req,res){
-        var uid = req.params.uid;
-        var result = [];
+    function findWebsitesByUser(req, res){
+        var userId = req.params.userId;
+        var sites = [];
         for(var w in websites){
-            if(websites[w].developerId === uid){
-                result.push(websites[w]);
+            if(websites[w].developerId == userId){
+                sites.push(websites[w]);
             }
         }
-        res.json(result)
+        res.json(sites);
 
     }
-    function findWebsiteById(req,res){
+    function findWebsiteById(req, res){
 
     }
-    function updateWebsite(req,res){
+    function updateWebsite(req, res){
 
     }
-    function deleteWebsite(req,res){
+    function deleteWebsite(req, res){
 
     }
 

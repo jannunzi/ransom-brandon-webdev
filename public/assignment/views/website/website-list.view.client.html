@@ -29,13 +29,10 @@
     </nav>
 
         <div class="container">
-
             <ul class="list-group">
-
-                {{model.websites}}
-                <li ng-repeat ="website in model.websites" class="list-group-item">
+                <li class="list-group-item" ng-repeat ="website in model.websites">
                     <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">
-                        {{websites.name}}
+                        {{website.name}}
                     </a>
                     <a href="#/user/{{website.developerId}}/website/{{website._id}}" class = "pull-right">
                         <span class = "glyphicon glyphicon-cog"></span>
