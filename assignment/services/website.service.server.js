@@ -18,10 +18,12 @@ module.exports = function(app){
 
 
     function createWebsite(req, res){
-        var website = req.body;
-        console.log(website);
-        users.push(website);
-        res.send(website);
+        var userId = req.params.userId;
+        var newWebsite = req.body;
+        newWebsite._id = (new Date()).getTime();
+        newWebsite.developerId = userId;
+        websites.push(newWebsite);
+        res.json(newWebsite);
     }
 
     //This function never places the Website list within the resulting array.  I need to find a way to do this.
@@ -38,12 +40,40 @@ module.exports = function(app){
 
     }
     function findWebsiteById(req, res){
-
+        var websiteId = req.params.websiteId;
+        for(var w in websites){
+            var website = websites[w];
+            if (website.id === websiteId){
+                res.send(website);
+                return;
+            }
+        }
     }
+
     function updateWebsite(req, res){
+        var websiteId = req.params.websiteId;
+        var website = req.body;
+        for(var w in websites){
+            if(websites[w]._id == websiteId){
+                websites[w].name = website.name;
+                websites[w].description = website.description;
+                res.json(website[w]);
+                return;
+            }
+
+        }
 
     }
     function deleteWebsite(req, res){
+        var websiteId = req.params.websiteId;
+        for(var w in websites){
+            if(websites[w]._id == websiteId)
+            {
+                websites.splice(w, 1);
+                res.json(w);
+                return;
+            }
+        }
 
     }
 

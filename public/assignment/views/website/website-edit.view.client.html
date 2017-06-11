@@ -4,7 +4,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
                 <div class="navbar-text pull-left" style="margin-left: 0px">
-                    <a href="#/user/{{model.uid}}/website/">
+                    <a href="#/user/{{model.userId}}/website/">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
                 </div>
@@ -15,7 +15,7 @@
                     </a>
 
                     <p class="navbar-text pull-right">
-                        <a href="#/user/{{model.uid}}/website/" class="navbar-link">
+                        <a ng-click="model.updateWebsite(updatedWebsite)" class="navbar-link">
                              <span class="glyphicon glyphicon-ok" style="margin-right:15px">
                             </span>
                         </a>
@@ -30,15 +30,15 @@
             <form class="webNew">
                 <div class="form-group">
                     <label for="website-name">Name</label>
-                    <input ng-model = "model.website.name"
+                    <input ng-model = "model.updatedWebsite.name"
                            type="text"
                            class="form-control"
                            id="website-name"
-                           placeholder="Blogger">
+                           placeholder="Name">
                 </div>
                 <div class="form-group2>
                     <label for="description">Website Description</label>
-                    <textarea ng-model = "model.website.description"
+                    <textarea ng-model = "model.updatedWebsite.description"
                               rows="4"
                               id="description"
                               class="form-control" placeholder="Description">Blogger is a blog-publishing service that allows multi-user blogs with time stamped entries it was developed by Pyra Labs which was bought by Google in 2003.  Generally the blogs are hosted by Google
@@ -48,7 +48,7 @@
                 <br>
             </form>
 
-            <a ng-click="model.deleteWebsite(model.wid)" class="btn btn-danger btn-block">Delete</a>
+            <a ng-click="model.deleteWebsite()" class="btn btn-danger btn-block">Delete</a>
         </div>
 
 

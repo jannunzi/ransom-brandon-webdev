@@ -16,24 +16,26 @@
 
         return api;
 
-            function createWebsite(developerId, name, desc){
+            function createWebsite(userId, website){
+                return $http.post("/api/user/" + userId +"/website", website);
               /*  var website = {
                     _id: (new Date()).getTime() + "",
                     name: name,
                     description: desc,
                     developerId: developerId
                 };*/
-                return $http.post("/api/user/:userId/website", website);
+
             }
 
-        function deleteWebsite(wid){
-            for (var i in websites){
+        function deleteWebsite(websiteId){
+            return $http.delete("/api/website/"+ websiteId);
+            /*for (var i in websites){
                 if (websites[i]._id === wid){
                     websites.splice(i, 1);
                     return true;
                 }
             }
-            return false;
+            return false;*/
         }
 
 
@@ -43,12 +45,13 @@
 
         }
 
-            function findWebsiteById(wid){
-                var url = ""
-            }
+        function findWebsiteById(websiteId){
+            return $http.get("/api/website/"+ websiteId);
+        }
 
-        function updateWebsite(wid, website){
-            for (var i in websites){
+        function updateWebsite(websiteId, website){
+            return $http.put("/api/website/"+ websiteId, website);
+            /*for (var i in websites){
                 if(websites[i].developerId === wid){
                     websites[i].description = website.description;
                     websites[i].name = website.name;
@@ -56,7 +59,7 @@
                 }
 
             }
-            return false;
+            return false;*/
         }
 
     }

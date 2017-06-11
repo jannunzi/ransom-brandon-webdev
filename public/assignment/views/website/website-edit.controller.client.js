@@ -5,20 +5,48 @@
 
     function EditWebsiteController($location, $routeParams, WebsiteService){
         var vm = this;
-        vm.uid = $routeParams.uid;
-        vm.wid = $routeParams.wid;
+        var userId = $routeParams.uid;
+        var websiteId = $routeParams.wid;
         vm.deleteWebsite = deleteWebsite;
+        vm.updateWebsite = updateWebsite;
 
-        function deleteWebsite(wid){
-            var result = WebsiteService.deleteWebsite(wid);
-            if(result){
-                $location.url("/user/"+vm.uid+"/website");
+        function init(){
+            vm.userId = userId;
+            vm.websiteId = websiteId;
 
-            }
-            else{
-                vm.error ="Unable to delete website";
+            WebsiteService
+                .findWebsitesByUser(userId)
+                .success(function(websites){
+                    vm.websites = websites;
+                });
 
-            }
+            WebsiteService
+                .findWebsiteById(websiteId)
+                .success(function(updatedWebsite){
+                    vm.updatedWebsite = updatedWebsite;
+                });
+        }
+        init();
+
+        function updateWebsite(){
+            WebsiteService
+                .updateWebsite(websiteId, vm.updatedWebsite)
+                .success(function(website){
+                    if(website != null){
+                        $location.url("/user/"+ userId + "/website");
+                    }
+                })
+                .error(function(){
+                    vm.error = "Error in updating the website";
+                });
+        }
+
+        function deleteWebsite(websiteId){
+            WebsiteService
+                .deleteWebsite(vm.websiteId)
+                .success(function(){
+                    $location.url("/user/" + userId + "/website")
+                });
 
         }
 

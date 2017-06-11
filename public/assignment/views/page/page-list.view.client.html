@@ -3,18 +3,18 @@
         <div class="container-fluid">
             <div class ="navbar-header">
                 <div class="navbar-text pull-left" style="margin-left: 0px">
-                    <a href="#/user/{{model.uid}}/website">
+                    <a href="#/user/{{model.userId}}/website">
                         <span class="glyphicon glyphicon-chevron-left" style="color:dimgray"></span>
                     </a>
                 </div>
 
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{pages._id}}/widget">
+                    <a class="navbar-brand" href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
                         Pages
                     </a>
 
                     <p class="navbar-text pull-right">
-                        <a href="#/user/{{model.uid}}/website/{{model.websiteId}}/page/new" class="navbar-link">
+                        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/new" class="navbar-link">
                              <span class="glyphicon glyphicon-plus" style="margin-right:15px; color:dimgray" >
                             </span>
                         </a>
@@ -31,10 +31,10 @@
 
             <ul class="list-group">
                 <li ng-repeat = "page in model.pages" class="list-group-item">
-                    <a href="#/user/{{model.uid}}/website/{{page.websiteId}}/page/{{page._id}}/widget">
+                    <a href="#/user/{{model.userId}}/website/{{page.websiteId}}/page/{{page._id}}/widget">
                         {{page.name}}
                     </a>
-                    <a href="#/user/{{model.uid}}/website/{{page.websiteId}}/page/{{page._id}}" class = "pull-right">
+                    <a href="#/user/{{model.userId}}/website/{{page.websiteId}}/page/{{page._id}}" class = "pull-right">
                         <span class = "glyphicon glyphicon-cog"></span>
                     </a>
 
@@ -65,7 +65,7 @@
                 </a>
             </div>
             <div class="col-xs-3 text-center">
-                <a href="#/user/:uid">
+                <a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user" style="color:cornflowerblue"></span>
                 </a>
             </div>
