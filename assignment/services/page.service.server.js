@@ -3,7 +3,7 @@ module.exports = function(app){
     app.post("/api/website/:websiteId/page", createPage);
     app.get("/api/website/:websiteId/page", findAllPagesForWebsite);
     app.get("/api/page/:pageId", findPageById);
-    app.put("/api/website/:websiteId", updatePage);
+    app.put("/api/page/:pageId", updatePage);
     app.delete("/api/page/:pageId", deletePage);
 
     var pages = [
@@ -51,13 +51,12 @@ module.exports = function(app){
             if(pages[p]._id == pageId){
                 pages[p].name = page.name;
                 pages[p].description = page.description;
-                res.json(pages[p]);
+                res.json(page[p]);
                 return;
             }
         }
-        res.json(404);
-
     }
+
     function deletePage(req,res){
         var pageId = req.params.pageId;
         for(var p in pages){
@@ -67,7 +66,6 @@ module.exports = function(app){
                 return;
             }
         }
-        res.json(404);
 
     }
 

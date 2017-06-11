@@ -42,7 +42,7 @@
         }
 
         function deletePage(pageId){
-            return $http.put("/api/page/"+ pageId, page);
+            return $http.delete("/api/page/"+ pageId);
         }
 
 
