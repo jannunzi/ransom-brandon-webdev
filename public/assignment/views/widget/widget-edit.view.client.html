@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class ="navbar-header">
             <div class="navbar-text pull-left" style="margin-left: 0px">
-                <a href="#/user/:uid/website/:wid/page">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
                     <span class="glyphicon glyphicon-chevron-left" style="color:dimgray"></span>
                 </a>
             </div>
@@ -14,7 +14,7 @@
                 </a>
 
                 <p class="navbar-text pull-right">
-                    <a href="#/user/:uid/website/:wid/page/:pid/widget/new" class="navbar-link">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" class="navbar-link">
                              <span class="glyphicon glyphicon-plus" style="margin-right:15px; color:dimgray" >
                             </span>
                     </a>
@@ -64,7 +64,7 @@
                 </a>
             </div>
             <div class="col-xs-3 text-center">
-                <a href="#/user/:uid">
+                <a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user" style="color:cornflowerblue"></span>
                 </a>
             </div>

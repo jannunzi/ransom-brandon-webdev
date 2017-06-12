@@ -5,14 +5,26 @@
 
     function WidgetListController($sce, $routeParams, WidgetService){
         var vm = this;
-        vm.pageId = $routeParams.pid;
-        vm.uid = $routeParams.uid;
+
+        var userId = $routeParams.uid;
+        var websiteId = $routeParams.wid;
+        var pageId = $routeParams.pid;
+
         vm.getSafeHtml= getSafeHtml;
         vm.getSafeUrl= getSafeUrl;
 
         function init(){
 
-            vm.widgets = WidgetService.findWidgetByPageId(vm.pageId);
+            vm.userId = userId;
+            vm.websiteId = websiteId;
+            vm.pageId= pageId;
+
+            WidgetService
+                .findWidgetByPageId(pageId)
+                .success(function(widgets){
+                    vm.widgets= widgets;
+            });
+
             //Uses jQuery to make the widgets sortable.
             $(".container")
                 .sortable();
