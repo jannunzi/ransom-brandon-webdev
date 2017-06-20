@@ -1,4 +1,7 @@
-module.exports = function(app){
+module.exports = function(app, models){
+
+    var userModel = models.userModel;
+
 
     var users =   [
         {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
@@ -25,7 +28,7 @@ module.exports = function(app){
                 return;
             }
         }
-        res.send(400)
+        res.sendStatus(400)
     }
 
     function updateUser(req, res){
@@ -39,10 +42,10 @@ module.exports = function(app){
                 return;
             }
         }
-        res.send(400);
     }
 
     function createUser(req, res){
+        userModel.createUser(user);
         var user = req.body;
         console.log(user);
         users.push(user);
@@ -59,7 +62,7 @@ module.exports = function(app){
                 return;
             }
         }
-        res.send({});
+        res.sendStatus(400);
     }
 
     function getUsers(req, res){
@@ -86,7 +89,7 @@ module.exports = function(app){
                 return;
             }
         }
-        res.send({});
+        res.sendStatus(400);
 
     }
 
@@ -97,7 +100,7 @@ module.exports = function(app){
                 return;
             }
         }
-        res.send({});
+        res.sendStatus(400);
 
     }
 
