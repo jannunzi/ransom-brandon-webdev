@@ -3,7 +3,7 @@
  */
 module.exports = function(){
    //connect to the mongoose library
-    var mongoose = require("mongoose");
+    var mongoose = require('mongoose');
     mongoose.connect('mongodb://localhost/cs5610summer1');
 
     //We are going to create one service per collection (User, Website, Page, Widget)
