@@ -9,6 +9,7 @@
         var userId = $routeParams.uid;
         var websiteId = $routeParams.wid;
 
+
         function init(){
             vm.userId = userId;
             console.log(userId);
@@ -27,13 +28,20 @@
         }
         init();
 
-        function createWebsite(newWebsite){
+        function createWebsite(name, description){
             WebsiteService
-                .createWebsite(vm.userId, newWebsite)
-                .success(function(){
-                   $location.url("/user/"+ userId + "/website")
-                });
-
+                .createWebsite(vm.userId, name, description)
+                .then(
+                    function(response){
+                        var newWebsite = response.data;
+                        if (newWebsite){
+                            $location.url("/user/"+ userId + "/website");
+                        }
+                        else {
+                            vm.error = "Unable to create website";
+                        }
+                    }
+                )
 
         }
 

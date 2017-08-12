@@ -16,7 +16,11 @@
 
         return api;
 
-            function createWebsite(userId, website){
+            function createWebsite(userId, name, desc){
+                var website = {
+                    name: name,
+                    description: desc
+                };
                 return $http.post("/api/user/" + userId +"/website", website);
               /*  var website = {
                     _id: (new Date()).getTime() + "",

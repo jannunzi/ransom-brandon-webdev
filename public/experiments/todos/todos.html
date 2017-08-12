@@ -1,0 +1,35 @@
+
+<table class = "table">
+    <thead>
+        <tr>
+            <th ng-repeat = "(key,value) in data[0]">
+                {{key}}
+            </th>
+        </tr>
+        <!-- This section is replaced by the key above
+        <tr>
+            <th>Priority</th>
+            <th>Title</th>
+            <th>Todo</th>
+        </tr>
+        -->
+    </thead>
+    <tbody>
+    <tr ng-repeat = "row in data | orderBy : 'priority'">
+        <td ng-repeat = "(key,value) in row">
+            {{value}}
+        </td>
+    </tr>
+
+    <!-- This section is replaced with a more dynamic method of data input.
+        <tr ng-repeat = "todoObj in data">
+            <td>{{todoObj.priority}}</td>
+            <td>{{todoObj.title}}</td>
+            <td>{{todoObj.todo}}</td>
+        </tr>
+
+        -->
+
+    </tbody>
+
+</table>

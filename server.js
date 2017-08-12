@@ -16,6 +16,10 @@ var port      = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 var assignment = require("./assignment/app.js");
 assignment(app);
 
+var todo = require("./experiments/todos.js");
+todo(app);
+
+
 app.listen(port, ipaddress);
 
 process.on('SIGINT', function(){

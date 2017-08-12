@@ -9,7 +9,8 @@ module.exports = function(){
     //We are going to create one service per collection (User, Website, Page, Widget)
 
     var models = {
-        userModel: require("./user/user.model.server.js")()
+        userModel: require("./user/user.model.server")(),
+        websiteModel: require("./website/website.model.server")()
         //TODO: add all the other models: Website Model, Page Model Etc.
 
     };

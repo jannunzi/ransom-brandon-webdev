@@ -1,4 +1,6 @@
-module.exports = function(app){
+module.exports = function(app, models){
+
+    var websiteModel = models.websiteModel;
 
     app.post("/api/user/:userId/website", createWebsite);
     app.get("/api/user/:userId/website", findWebsitesByUser);
@@ -19,24 +21,39 @@ module.exports = function(app){
 
     function createWebsite(req, res){
         var userId = req.params.userId;
-        var newWebsite = req.body;
-        newWebsite._id = (new Date()).getTime();
+        var website = req.body;
+        websiteModel
+            .createWebsite(userId, website)
+            .then(
+                function(website){
+                    res.json(website)
+                }
+            );
+        /*newWebsite._id = (new Date()).getTime();
         newWebsite.developerId = userId;
         websites.push(newWebsite);
-        res.json(newWebsite);
+        res.json(newWebsite);*/
     }
 
     //This function never places the Website list within the resulting array.  I need to find a way to do this.
 
     function findWebsitesByUser(req, res){
         var userId = req.params.userId;
-        var sites = [];
+        websiteModel
+            .findWebsitesByUser(userId)
+            .then(
+                function(websites){
+                    res.json(websites);
+                }
+            );
+
+        /*var sites = [];
         for(var w in websites){
             if(websites[w].developerId == userId){
                 sites.push(websites[w]);
             }
         }
-        res.json(sites);
+        res.json(sites);*/
 
     }
     function findWebsiteById(req, res){

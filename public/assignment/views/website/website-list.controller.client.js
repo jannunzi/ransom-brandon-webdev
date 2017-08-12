@@ -12,9 +12,15 @@
             vm.userId = userId;
             WebsiteService
                 .findWebsitesByUser(userId)
-                .success(function(websites){
+                .then(
+                    function(response){
+                        vm.websites = response.data;
+                    }
+                    //Dont forget to add a place where you get  an error if this doesnt work properly.
+                );
+                /*.success(function(websites){
                     vm.websites = websites;
-            });
+            });*/
                 // .findAllWebsitesForUser(vm.uid)
                 // .then(function(response){
                 //     console.log(response);
