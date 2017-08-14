@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DASH 4 Men</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="profile.css" rel ="stylesheet"/>
+
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-masthead navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-example-masthead-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">DASH 4 Men</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse bs-example-masthead-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Planner<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Forum</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="login/views/login.html">Logout</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    <div class="row profile">
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+                </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        Marcus Doe
+                    </div>
+                    <div class="profile-usertitle-job">
+                        DASH Client
+                    </div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR BUTTONS -->
+                <div class="profile-userbuttons">
+                    <button type="button" class="btn btn-success btn-sm">Follow</button>
+                    <button type="button" class="btn btn-danger btn-sm">Message</button>
+                </div>
+                <!-- END SIDEBAR BUTTONS -->
+                <!-- SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-home"></i>
+                                Overview </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-user"></i>
+                                Account Settings </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="glyphicon glyphicon-ok"></i>
+                                Tasks </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-flag"></i>
+                                Help </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
+            </div>
+        </div>
+        <div class="col-md-9">
+            <!-- TODO: Add meal plan with spoonacular (Use base from Codepen https://codepen.io/danny_pule/pen/mJJgBd-->
+            <div class="profile-content">
+
+                <div class="app" ng-app="app" ng-controller="MealsController">
+                    <h3 class="text-center">Meal Planner</h3>
+                    <form class="well">
+
+                        <input type="text" class="form-control" placeholder="Meal name" name="mealName" ng-model="newMeal.mealName" />
+
+                        <select class="form-control" ng-model="newMeal.category">
+                            <option ng-repeat="category in categories">{{category.name}}</option>
+                        </select>
+
+                        <input id="dateInput" type="text" class="form-control" placeholder="Date" name="date" ng-model="newMeal.date" />
+                        <br/>
+                        <input type="hidden" ng-model="newMeal.id" />
+                        <input type="button" value="Save" ng-click="saveContact()" class="btn btn-warning btn-block" />
+                    </form>
+
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Meal Name</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="meal in meals">
+                            <td>{{ meal.mealName }} {{meal.id}}</td>
+                            <td>{{ meal.category }}</td>
+                            <td>{{ meal.date }}</td>
+                            <td> <a href="javascript:void(0)" ng-click="edit(meal.id)">edit</a> | <a href="javascript:void(0)" ng-click="delete(meal.id)">delete</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
