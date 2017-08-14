@@ -1,6 +1,6 @@
 module.exports = function(app){
 
-    //retrieve models and pass them to services
+    //retrieve models and pass them to client services
     var models = require("./models/models.server")();
 
     //Load and call the function

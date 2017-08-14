@@ -53,6 +53,15 @@ app.get('/rest/course', function(req, res){
     {
         res.json(results);
     });
+});//When data is exchanged put REST before the course resource.
+app.get('/rest/course', function(req, res){
+    findAll(function(err, results)
+    {
+        res.json(results);
+    });
 });
+
+app.listen(3000);
+
 
 app.listen(3000);

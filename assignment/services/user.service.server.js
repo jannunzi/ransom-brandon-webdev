@@ -1,36 +1,28 @@
 module.exports = function(app, models){
 
-    var userModel = models.userModel;
 
-
-    var users =   [
-        {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
-        {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
-        {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
-        {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
-    ];
 
     app.post("/api/user", createUser);
     app.get("/api/user", getUsers);
 
     // Express cannot differentiate between /api/user & /api/user?username=:username
     // app.get("/api/user?username=:username", findUserByUsername);
-    app.get("/api/user/:userId", findUserById);
+    app.get("/api/user/:uid", findUserById);
     app.put("/api/user/:uid", updateUser);
     app.delete("/api/user/:uid", deleteUser);
 
     function deleteUser (req,res){
         var uid = req.params.uid;
 
-        userModel
+        models.userModel
             .deleteUser(uid)
             .then(
             function(stats){
                 console.log(stats);
-                res.send(200);
+                res.sendStatus(200);
             },
             function(err){
-                res.send(err)
+                res.sendStatus(err)
             }
         )
         /*for(var i in users){
@@ -47,12 +39,13 @@ module.exports = function(app, models){
         var uid = req.params.uid;
         var newUser = req.body;
 
-        userModel
+        models.userModel
             .updateUser(uid, newUser)
             .then(
                 function(stats){
                     console.log(stats);
-                    res.send(200);
+                    //use res.sendStatus(200), because res.send(200) has been deprecated.
+                    res.sendStatus(200);
                 },
                 function(error){
                     res.StatusCode(400).send(error);
@@ -73,7 +66,9 @@ module.exports = function(app, models){
         var user = req.body;
         //Use a promise to make an asynchronous call to the database.
         //Same syntax as the controller
-        userModel
+
+
+        models.userModel
             .createUser(user)
             .then(
                 function(user){
@@ -83,8 +78,7 @@ module.exports = function(app, models){
                 function(error){
                     res.StatusCode(400).send(error);
 
-                }
-            )
+                });
         // console.log(user);
         // users.push(user);
         // res.send(user);
@@ -95,7 +89,7 @@ module.exports = function(app, models){
     function findUserById(req,res){
         var id = req.params.userId;
 
-        userModel
+        models.userModel
             .findUserById(id)
             .then(
                 function(user){
@@ -103,8 +97,7 @@ module.exports = function(app, models){
                 },
                 function(err){
                     res.send(err)
-                }
-            )
+                });
         /*for(var i in users){
             if(users[i]._id === id){
                 res.send(users[i]);
@@ -131,8 +124,11 @@ module.exports = function(app, models){
 
     }
 
-    function findUserByCredentials (username, password, res){
-        userModel
+    function findUserByCredentials (req, res){
+        var username = req.query['username'];
+        var password = req.query['password'];
+
+        models.userModel
             .findUserByCredentials (username, password)
             .then(
                 function(user){
@@ -140,8 +136,7 @@ module.exports = function(app, models){
                 },
                 function(err){
                     res.send(err);
-                }
-            )
+                });
         /*for(var i in users){
             if(users[i].username === username && users[i].password === password){
                 res.send(users[i]);

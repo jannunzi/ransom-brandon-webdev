@@ -6,6 +6,13 @@ module.exports = function(){
     var mongoose = require('mongoose');
     mongoose.connect('mongodb://localhost/cs5610summer1');
 
+    var user = {
+      username: 'alice',
+      password: 'wonderland'
+    };
+
+    userModel.createUser(user);
+
     //We are going to create one service per collection (User, Website, Page, Widget)
 
     var models = {
