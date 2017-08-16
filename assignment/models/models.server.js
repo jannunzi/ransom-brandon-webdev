@@ -11,7 +11,6 @@ module.exports = function(){
       password: 'wonderland'
     };
 
-    userModel.createUser(user);
 
     //We are going to create one service per collection (User, Website, Page, Widget)
 
