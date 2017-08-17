@@ -19,6 +19,8 @@ assignment(app);
 var todo = require("./experiments/todos.js");
 todo(app);
 
+require("./project/services/poc")(app);
+
 
 app.listen(port, ipaddress);
 

@@ -2,72 +2,38 @@
  * Created by Bransom on 8/15/17.
  */
 (function() {
-    angular
+    var wer = angular
         .module("OryxHealth")
-        .config(Config);
+        .config(configuration)
 
-    function Config($routeProvider) {
+    console.log(wer);
+    //     .controller("profileController", profileController);
+    //
+    // function profileController($http) {
+    //     $http.get("http://localhost:3000/api/project/search/meat")
+    //         .success(function (result) {
+    //             console.log(result);
+    //         });
+    // }
+
+    function configuration($routeProvider) {
         $routeProvider
-            .when("/login", {
-                templateUrl: "views/user/login.view.client.html",
-                controller: "LoginController",
-                controllerAs: "model"
-            })
-            .when("/register", {
-                templateUrl: "views/user/register.view.client.html"
-            })
             .when("/profile", {
-                templateUrl: "views/user/profile.view.client.html"
-            })
-            .when("/user/:uid", {
-                templateUrl: "views/user/profile.view.client.html",
-                controller: "ProfileController",
+                templateUrl: "users/client/views/templates/profile/Profile.html",
+                controller: "profileController",
                 controllerAs: "model"
             })
-            .when("/user/:uid/website", {
-                templateUrl: "views/website/website-list.view.client.html",
-                controller: "WebsiteListController",
-                controllerAs: "model"
-            })
-            .when("/user/:uid/website/new", {
-                templateUrl: "views/website/website-new.view.client.html",
-                controller: "NewWebsiteController",
-                controllerAs: "model"
-            })
-            .when("/user/:uid/website/:wid", {
-                templateUrl: "views/website/website-edit.view.client.html",
-                controller: "EditWebsiteController",
-                controllerAs: "model"
-            })
-            .when("/user/:uid/website/:wid/page", {
-                templateUrl: "views/page/page-list.view.client.html",
-                controller: "PageListController",
-                controllerAs: "model"
-            })
-            .when("/user/:uid/website/:wid/page/new", {
-                templateUrl: "views/page/page-new.view.client.html",
-                controller: "NewPageController",
-                controllerAs: "model"
 
+            .when("/home", {
+                templateUrl: "login/views/home.html"
             })
-            .when("/user/:uid/website/:wid/page/:pid", {
-                templateUrl: "views/page/page-edit.view.client.html",
-                controller: "EditPageController",
-                controllerAs: "model"
+
+            .when("/login", {
+                templateUrl: "login/views/login.html"
             })
-            .when("/user/:uid/website/:wid/page/:pid/widget", {
-                templateUrl: "views/widget/widget-list.view.client.html",
-                controller: "WidgetListController",
-                controllerAs: "model"
-            })
-            .when("/user/:uid/website/:wid/page/:pid/widget/new", {
-                templateUrl: "views/widget/widget-chooser.view.client.html"
-            })
-            .when("/user/:uid/website/:wid/page/:pid/widget/:wgid", {
-                templateUrl: "views/widget/widget-edit.view.client.html"
-            })
+
             .otherwise({
-                redirectTo: '/login'
+                redirectTo: '/profile'
             });
     }
 })();
