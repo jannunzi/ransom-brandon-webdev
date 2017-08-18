@@ -1,0 +1,9 @@
+<input placeholder="chicken" class="form-control" ng-model="model.text"/>
+<button class="btn btn-block btn-default" ng-click="model.searchIngredient(model.text)">Search</button>
+
+<ul class="list-group">
+    <li ng-repeat="ingredient in model.ingredients" class="list-group-item">
+        {{ingredient}}
+    </li>
+</ul>
+{{model.ingredients}}

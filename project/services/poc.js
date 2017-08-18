@@ -13,8 +13,6 @@ module.exports = function (app) {
             });
     }
 
-
-
     function search(text) {
         var deferred = q.defer();
         unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/autocomplete?metaInformation=false&number=10&query="+text)
